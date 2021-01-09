@@ -1,0 +1,41 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Debug'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '5.x'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'ChamaAluno.sln'
+    feedsToUse: 'config'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'ChamaAluno.sln'
+- task: DotNetCoreCLI@2
+  inputs:
+    projects: 'ChamaAluno.sln'
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '-o $(build.artifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  chamaaluno.banco:    
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+        SA_PASSWORD: "Chama@luno!@1234"
+        ACCEPT_EULA: "Y"
+        TZ: "America/Sao_Paulo"
+    container_name: ChamaAluno.Banco   
+    volumes: 
+        - c:/Banco:/var/opt/mssql/data
+    ports:
+        - "1433:1433"
+  chamaaluno.webapi:
+    image: ${DOCKER_REGISTRY-}chamaalunowebapi
+    build:
+      context: .
+      dockerfile: ChamaAluno.WebAPI/Dockerfile
+    container_name: ChamaAluno.WebAPI
+    volumes:
+        - "c:/LicencasChamaAluno:/Licenca"
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on: 
+      - chamaaluno.banco
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:5001;http://+:5000

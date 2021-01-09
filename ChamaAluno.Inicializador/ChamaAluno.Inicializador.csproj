@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="EGF.Licenciamento.WEB" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChamaAluno.Dados\ChamaAluno.Dados.csproj" />
+    <ProjectReference Include="..\ChamaAluno.Dominio\ChamaAluno.Dominio.csproj" />
+    <ProjectReference Include="..\ChamaAluno.DTOs.Mapeamentos\ChamaAluno.DTOs.Mapeamentos.csproj" />
+    <ProjectReference Include="..\ChamaAluno.ServicosDeAplicacao.CRUD\ChamaAluno.ServicosDeAplicacao.CRUD.csproj" />
+  </ItemGroup>
+
+</Project>

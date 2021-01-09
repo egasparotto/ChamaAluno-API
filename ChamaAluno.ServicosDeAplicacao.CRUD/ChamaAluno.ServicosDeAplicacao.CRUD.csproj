@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EGF.ServicosDeAplicacao.CRUD" Version="1.0.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChamaAluno.Dominio\ChamaAluno.Dominio.csproj" />
+    <ProjectReference Include="..\ChamaAluno.DTOs\ChamaAluno.DTOs.csproj" />
+  </ItemGroup>
+
+</Project>

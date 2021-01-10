@@ -23,17 +23,18 @@ steps:
   inputs:
     command: 'restore'
     projects: 'ChamaAluno.sln'
-    feedsToUse: 'config'
+    feedsToUse: 'select'
+    vstsFeed: 'ab37c106-cba1-4080-ba5b-1387cd5caec2/07ddd2c9-bc3e-4e40-a7a5-eb9414318292'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
     projects: 'ChamaAluno.sln'
+    arguments: '--configuration debug'
 - task: DotNetCoreCLI@2
   inputs:
-    projects: 'ChamaAluno.sln'
     command: 'publish'
     publishWebProjects: true
-    arguments: '-o $(build.artifactStagingDirectory)'
+    arguments: '-o $(build.artifactStagingDirectory) --configuration debug'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'

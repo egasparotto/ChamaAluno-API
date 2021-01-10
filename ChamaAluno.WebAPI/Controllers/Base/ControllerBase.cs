@@ -21,9 +21,8 @@ namespace ChamaAluno.WebAPI.Controllers.Base
         }
 
         [HttpGet]
-        public IEnumerable<TDTO> ObterTodos([FromServices] IUnidadeDeTrabalho unidadeDeTrabalho)
+        public IEnumerable<TDTO> ObterTodos()
         {
-            unidadeDeTrabalho.Contexto.Database.Migrate();
             return ServicoDeCrud.ObterTodos();
         }
 

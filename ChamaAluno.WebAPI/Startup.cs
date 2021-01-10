@@ -48,6 +48,7 @@ namespace ChamaAluno.WebAPI
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
                 options.Filters.Add(new FiltroDeHost());
+                options.Filters.Add(new FiltroDeAtualizacaoDoBanco());
             }); 
 
             services.AddSwaggerGen(c =>

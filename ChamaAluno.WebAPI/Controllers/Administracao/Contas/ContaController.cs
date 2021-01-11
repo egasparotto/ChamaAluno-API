@@ -3,6 +3,7 @@
 using ChamaAluno.Dominio.Cadastros.Colaboradores.Entidades;
 using ChamaAluno.Dominio.Cadastros.Colaboradores.Servicos;
 using ChamaAluno.DTOs.Administracao.Contas;
+using ChamaAluno.DTOs.Cadastros.Colaboradores;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,27 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
             _httpContextAccessor = httpContextAccessor;
         }
 
+
+        [HttpGet("UsuarioLogado")]
+        public async Task<DTODeColaborador> UsuarioLogado()
+        {
+            var strIdDoUsuario = _httpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.NameIdentifier).FirstOrDefault()?.Value;
+
+            if(!string.IsNullOrEmpty(strIdDoUsuario))
+            {
+                var id = int.Parse(strIdDoUsuario);
+
+                var entidade = _servicoDeUsuario.ObterPorID(id);
+
+                var dto = _mapper.Map<DTODeColaborador>(entidade);
+
+                return dto;
+
+            }
+
+            throw new Exception("Erro ao localizar usuário.");
+        }
+
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<DTODeRespostaDeLogin> Login(DTODeLogin dto)
@@ -64,7 +86,7 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
                     };
                 }
             }
-            throw new Exception("Usuário ou senha inválidos");
+            throw new Exception("Usuário ou senha inválidos.");
         }
 
 

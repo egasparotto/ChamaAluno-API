@@ -64,7 +64,7 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
                     };
                 }
             }
-            throw new Exception("Erro ao efetuar login");
+            throw new Exception("Usuário ou senha inválidos");
         }
 
 

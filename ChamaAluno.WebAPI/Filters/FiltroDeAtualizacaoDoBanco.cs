@@ -31,19 +31,8 @@ namespace ChamaAluno.WebAPI.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            try
-            {
-                var unidadeDeTrabalho = (IUnidadeDeTrabalho)context.HttpContext.RequestServices.GetService(typeof(IUnidadeDeTrabalho));
-                unidadeDeTrabalho.Contexto.Database.Migrate();
-            }
-            catch(Exception e)
-            {
-                context.Result = new ContentResult()
-                {
-                    StatusCode = 500,
-                    Content = e.Message + '\n' + e.StackTrace
-                };
-            }
+            var unidadeDeTrabalho = (IUnidadeDeTrabalho)context.HttpContext.RequestServices.GetService(typeof(IUnidadeDeTrabalho));
+            unidadeDeTrabalho.Contexto.Database.Migrate();
         }
     }
 }

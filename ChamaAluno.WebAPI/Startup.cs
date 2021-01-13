@@ -109,8 +109,6 @@ namespace ChamaAluno.WebAPI
             app.UseAuthorization();
             app.UseAuthentication();
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
             app.UseEndpoints(endpoints =>
             {
 #pragma warning disable CS1998

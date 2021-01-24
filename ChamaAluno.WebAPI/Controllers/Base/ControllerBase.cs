@@ -1,10 +1,13 @@
-﻿using EGF.Dominio.UnidadesDeTrabalho;
+﻿using ChamaAluno.DTOs.Framework.Exibicoes;
+
+using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.DTOs.Entidades;
 using EGF.ServicosDeAplicacao.CRUD.Base;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using System;
 using System.Collections.Generic;
 
 namespace ChamaAluno.WebAPI.Controllers.Base
@@ -48,6 +51,12 @@ namespace ChamaAluno.WebAPI.Controllers.Base
         public void Remover(TDTO dto)
         {
             ServicoDeCrud.Remover(dto);
+        }
+
+        [HttpGet("Exibicoes")]
+        public virtual IList<DTODeExibicao> ObterExibicoes()
+        {
+            throw new NotImplementedException();
         }
     }
 }

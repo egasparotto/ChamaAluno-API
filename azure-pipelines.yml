@@ -19,5 +19,5 @@ steps:
     containerRegistry: 'ChamaAluno'
     repository: 'ChamaAluno-API'
     command: 'buildAndPush'
-    Dockerfile: '/ChamaAluno.WebAPI/Dockerfile'
+    Dockerfile: 'ChamaAluno.WebAPI/Dockerfile'
     buildContext: '/'

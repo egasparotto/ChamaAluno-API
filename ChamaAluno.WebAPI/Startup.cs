@@ -94,7 +94,7 @@ namespace ChamaAluno.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
 
 

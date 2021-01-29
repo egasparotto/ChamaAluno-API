@@ -13,10 +13,9 @@ services:
     ports:
         - "1433:1433"
   chamaaluno.webapi:
-    image: ${DOCKER_REGISTRY-}chamaalunowebapi
     build:
       context: .
-      dockerfile: ChamaAluno.WebAPI/Dockerfile
+      dockerfile: Dockerfile
     container_name: ChamaAluno.WebAPI
     volumes:
         - "c:/LicencasChamaAluno:/Licenca"

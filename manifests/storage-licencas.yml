@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: licencas
+  name: licenca
 spec:
   accessModes:
-  - ReadWriteMany
-  storageClassName: managed-premium
+    - ReadWriteMany
+  storageClassName: chamaaluno
   resources:
     requests:
       storage: 1Gi

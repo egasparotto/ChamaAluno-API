@@ -71,6 +71,7 @@ stages:
             inputs:
               action: deploy
               manifests: |
+                $(Pipeline.Workspace)/manifests/azure-file-sc.yml
                 $(Pipeline.Workspace)/manifests/storage-licencas.yml
                 $(Pipeline.Workspace)/manifests/deployment-api.yml
                 $(Pipeline.Workspace)/manifests/service-api.yml

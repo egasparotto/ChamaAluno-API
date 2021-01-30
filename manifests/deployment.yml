@@ -19,8 +19,8 @@ spec:
           - containerPort: 80
           volumeMounts:
             - mountPath: "/Licenca"
-              name: Licenca
+              name: licenca
       volumes:
-      - name: Licenca
+      - name: licenca
         persistentVolumeClaim:
           claimName: licencas

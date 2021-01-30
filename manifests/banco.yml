@@ -51,3 +51,20 @@ spec:
       port: 1433
       targetPort: 1433
   type: LoadBalancer
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: policy-banco
+spec:
+  podSelector:
+    matchLabels:
+      app: mssql
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          purpose: chamaaluno
+      podSelector:
+        matchLabels:
+          app: chamaalunoapi

@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: chamaalunoapi 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chamaalunoapi
+  template:
+    metadata:
+      labels:
+        app: chamaalunoapi 
+    spec:
+      containers:
+        - name: chamaalunoapi 
+          image: chamaaluno.azurecr.io/chamaalunoapi
+          ports:
+          - containerPort: 80

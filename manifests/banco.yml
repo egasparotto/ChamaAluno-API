@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: chamaalunobanco
 spec:
-  replicas: 2
+  replicas: 1
   selector:
      matchLabels:
        app: mssql
@@ -12,19 +12,10 @@ spec:
       labels:
         app: mssql
     spec:
-      initContainers:
-        - name: volume-permissions
-          image: busybox
-          command: ["sh", "-c", "chown -R 10001:0 /var/opt/mssql"]
-          volumeMounts:
-          - mountPath: "/var/opt/mssql"
-            name: mssqldb
       terminationGracePeriodSeconds: 30
       hostname: mssqlinst
       securityContext:
         fsGroup: 10001
-        runAsUser: 10001
-        runAsGroup: 10001
       containers:
       - name: mssql
         image: mcr.microsoft.com/mssql/server:2019-latest

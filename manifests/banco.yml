@@ -18,7 +18,7 @@ spec:
           command: ["sh", "-c", "chown -R 10001:0 /var/opt/mssql"]
           volumeMounts:
           - mountPath: "/var/opt/mssql"
-            name: mssql-data
+            name: mssqldb
       terminationGracePeriodSeconds: 30
       hostname: mssqlinst
       securityContext:

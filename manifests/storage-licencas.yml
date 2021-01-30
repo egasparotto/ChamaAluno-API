@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: licenca
+  name: licencas
 spec:
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   storageClassName: managed-premium
   resources:
     requests:
-      storage: 1G
+      storage: 1Gi

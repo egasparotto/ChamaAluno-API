@@ -23,4 +23,4 @@ spec:
       volumes:
       - name: licenca
         persistentVolumeClaim:
-          claimName: licenca
+          claimName: licencas

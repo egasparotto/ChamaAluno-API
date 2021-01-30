@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: licenca
+  name: licencas
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: chamaaluno
+  - ReadWriteMany
+  storageClassName: azurefile
   resources:
     requests:
       storage: 1Gi

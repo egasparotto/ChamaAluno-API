@@ -12,6 +12,13 @@ spec:
       labels:
         app: mssql
     spec:
+      initContainers:
+        - name: volume-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 10001:0 /var/opt/mssql"]
+          volumeMounts:
+          - mountPath: "/var/opt/mssql"
+            name: mssql-data
       terminationGracePeriodSeconds: 30
       hostname: mssqlinst
       securityContext:
@@ -51,21 +58,21 @@ spec:
       port: 1433
       targetPort: 1433
   type: LoadBalancer
----
-kind: NetworkPolicy
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: policy-banco
-  namespace: chamaaluno
-spec:
-  podSelector:
-    matchLabels:
-      app: mssql
-  ingress:
-  - from:
-    - namespaceSelector:
-        matchLabels:
-          purpose: chamaaluno
-      podSelector:
-        matchLabels:
-          app: chamaalunoapi
+# ---
+# kind: NetworkPolicy
+# apiVersion: networking.k8s.io/v1
+# metadata:
+#   name: policy-banco
+#   namespace: chamaaluno
+# spec:
+#   podSelector:
+#     matchLabels:
+#       app: mssql
+#   ingress:
+#   - from:
+#     - namespaceSelector:
+#         matchLabels:
+#           purpose: chamaaluno
+#       podSelector:
+#         matchLabels:
+#           app: chamaalunoapi

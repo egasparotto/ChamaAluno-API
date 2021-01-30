@@ -23,4 +23,4 @@ spec:
       volumes:
       - name: licenca
         persistentVolumeClaim:
-          claimName: licencas
+          claimName: pvc-d6b6be63-2ede-4262-bd36-3ce296a8b254

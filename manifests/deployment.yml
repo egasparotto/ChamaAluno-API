@@ -17,3 +17,10 @@ spec:
           image: chamaaluno.azurecr.io/chamaalunoapi
           ports:
           - containerPort: 80
+          volumeMounts:
+            - mountPath: "/Licenca"
+              name: Licenca
+      volumes:
+      - name: Licenca
+        persistentVolumeClaim:
+        claimName: licencas

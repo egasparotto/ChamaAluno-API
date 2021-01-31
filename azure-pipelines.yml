@@ -76,6 +76,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/banco.yml
                 $(Pipeline.Workspace)/manifests/deployment-api.yml
                 $(Pipeline.Workspace)/manifests/service-api.yml
+                $(Pipeline.Workspace)/manifests/ingress.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |

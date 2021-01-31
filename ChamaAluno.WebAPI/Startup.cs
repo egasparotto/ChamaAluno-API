@@ -63,7 +63,7 @@ namespace ChamaAluno.WebAPI
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
                     In = ParameterLocation.Header,
-                    Description = "Autorização JWT utilizando Bearer."
+                    Description = "Autorizaï¿½ï¿½o JWT utilizando Bearer."
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -108,6 +108,8 @@ namespace ChamaAluno.WebAPI
 
             app.UseAuthorization();
             app.UseAuthentication();
+
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());	
 
             app.UseEndpoints(endpoints =>
             {

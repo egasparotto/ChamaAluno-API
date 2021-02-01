@@ -14,7 +14,7 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Licencas
 {
     [AllowAnonymous]
     [ApiController]
-    [Route("Administracao/[controller]")]
+    [Route("API/Administracao/[controller]")]
     public class LicenciamentoController
     {
         private readonly IGerenciadorDeLicenca _gerenciadorDeLicenca;

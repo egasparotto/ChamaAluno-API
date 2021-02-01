@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace ChamaAluno.WebAPI.Controllers.Cadastros.Responsaveis
 {
     [ApiController]
-    [Route("Cadastros/[controller]")]
+    [Route("API/Cadastros/[controller]")]
     public class ResponsavelController : ControllerBase<DTODeResponsavel, IResponsavelCRUD>
     {
         public ResponsavelController(IResponsavelCRUD servicoDeCrud) : base(servicoDeCrud)

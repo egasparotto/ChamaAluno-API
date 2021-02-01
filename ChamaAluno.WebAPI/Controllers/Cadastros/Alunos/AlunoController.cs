@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ChamaAluno.WebAPI.Controllers.Cadastros.Alunos
 {
     [ApiController]
-    [Route("Cadastros/[controller]")]
+    [Route("API/Cadastros/[controller]")]
     public class AlunoController : ControllerBase<DTODeAluno, IAlunoCRUD>
     {
         public AlunoController(IAlunoCRUD servicoDeCrud) : base(servicoDeCrud)

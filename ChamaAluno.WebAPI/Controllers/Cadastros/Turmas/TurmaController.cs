@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace ChamaAluno.WebAPI.Controllers.Cadastros.Turmas
 {
     [ApiController]
-    [Route("Cadastros/[controller]")]
+    [Route("API/Cadastros/[controller]")]
     public class TurmaController : ControllerBase<DTODeTurma, ITurmaCRUD>
     {
         public TurmaController(ITurmaCRUD servicoDeCrud) : base(servicoDeCrud)

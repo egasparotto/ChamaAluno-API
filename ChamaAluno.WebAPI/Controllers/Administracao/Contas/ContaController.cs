@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
 {
     [ApiController]
-    [Route("Administracao/[controller]")]
+    [Route("API/Administracao/[controller]")]
     public class ContaController: ControllerBase
     {
         private readonly IConfiguration _configuration;

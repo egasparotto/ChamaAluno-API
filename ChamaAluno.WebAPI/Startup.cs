@@ -111,9 +111,6 @@ namespace ChamaAluno.WebAPI
 
             app.UseEndpoints(endpoints =>
             {
-#pragma warning disable CS1998
-                endpoints.Map("/", async (contexto) => contexto.Response.Redirect("swagger"));
-#pragma warning restore CS1998
                 endpoints.MapControllers();
             });
         }

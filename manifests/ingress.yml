@@ -9,9 +9,18 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.org/rewrites: "serviceName=chamaalunoapp rewrite=/;serviceName=chamaalunoapi rewrite=/api;serviceName=chamaalunoapi rewrite=/swagger"
     nginx.ingress.kubernetes.io/default-backend: chamaalunoapi
+    cert-manager.io/cluster-issuer: tls-secret
+    nginx.ingress.kubernetes.io/server-alias: chamaaluno.egasparotto.net
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
+  tls:
+  - hosts:
+    - egasparotto.net
+    - chamaaluno.egasparotto.net
+    secretName: tls-secret
   rules:
-  - http:
+  - host: egasparotto.net
+    http:
       paths:
       - backend:
           serviceName: chamaalunoapi
@@ -25,3 +34,18 @@ spec:
           serviceName: chamaalunoapp
           servicePort: 80
         path: /(.*)
+  - host: chamaaluno.egasparotto.net
+    http:
+      paths:
+      - backend:
+          serviceName: chamaalunoapi
+          servicePort: 80
+        path: /api(/|$)(.*)
+      - backend:
+          serviceName: chamaalunoapi
+          servicePort: 80
+        path: /swagger(/|$)(.*)
+      - backend:
+          serviceName: chamaalunoapp
+          servicePort: 80
+        path: /(.*)  

@@ -16,7 +16,7 @@ spec:
   tls:
   - hosts:
     - egasparotto.net
-    - *.egasparotto.net
+    - '*.egasparotto.net'
     secretName: tls-secret
   rules:
   - host: egasparotto.net
@@ -34,7 +34,7 @@ spec:
           serviceName: chamaalunoapp
           servicePort: 80
         path: /(.*)
-  - host: *.egasparotto.net
+  - host: '*.egasparotto.net'
     http:
       paths:
       - backend:

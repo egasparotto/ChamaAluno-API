@@ -11,12 +11,12 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '3a2db3a3-2485-426c-ac31-f81584488ac9'
+  dockerRegistryServiceConnection: 'b73b5fa9-357d-49db-b590-e85299a8d423'
   imageRepository: 'chamaalunoapi'
   containerRegistry: 'chamaaluno.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  imagePullSecret: 'chamaaluno365234aa-auth'
+  imagePullSecret: 'chamaaluno19228814-auth'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'

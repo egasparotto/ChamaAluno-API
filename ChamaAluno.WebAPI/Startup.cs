@@ -1,26 +1,16 @@
-using AutoMapper;
-
-using ChamaAluno.DTOs.Mapeamentos.Cadastros.Colaboradores;
 using ChamaAluno.Inicializador;
 using ChamaAluno.WebAPI.Filters;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ChamaAluno.WebAPI
 {
@@ -44,13 +34,14 @@ namespace ChamaAluno.WebAPI
                 .IniciarServicos()
                 .IniciarCRUD()
                 .IniciarMapeamentosDeDTO();
-            services.AddControllers(options => {
+            services.AddControllers(options =>
+            {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 options.Filters.Add(new AuthorizeFilter(policy));
                 options.Filters.Add(new FiltroDeHost());
                 options.Filters.Add(new FiltroDeAtualizacaoDoBanco());
                 options.Filters.Add(new FiltroDeExcecao());
-            }); 
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -77,7 +68,7 @@ namespace ChamaAluno.WebAPI
                                     Id = "Bearer"
                                 }
                             },
-                            new string[] {}
+                            Array.Empty<string>()
                     }
                 });
             });

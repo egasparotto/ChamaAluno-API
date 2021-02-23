@@ -1,10 +1,9 @@
 ﻿using ChamaAluno.DTOs.Cadastros.Colaboradores;
-
-using EGF.ServicosDeAplicacao.CRUD.Base;
+using ChamaAluno.ServicosDeAplicacao.CRUD.Base;
 
 namespace ChamaAluno.ServicosDeAplicacao.CRUD.Cadastros.Colaboradores
 {
-    public interface IColaboradorCRUD : ICRUD<DTODeColaborador>
+    public interface IColaboradorCRUD : IChamaAlunoCRUD<DTODeColaborador>
     {
     }
 }

@@ -1,9 +1,9 @@
 ﻿
-using EGF.Dominio.Entidades;
+using ChamaAluno.Dominio.Base.Entidades;
 
 namespace ChamaAluno.Dominio.Cadastros.Turmas.Entidades
 {
-    public class Turma : EntidadeComId
+    public class Turma : EntidadeDoChamaAluno
     {
         public string Descricao { get; set; }
 

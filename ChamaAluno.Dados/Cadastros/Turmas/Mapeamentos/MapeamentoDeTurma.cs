@@ -1,5 +1,4 @@
-﻿
-using ChamaAluno.Dados.Base.Mapeamento;
+﻿using ChamaAluno.Dados.Base.Mapeamentos;
 using ChamaAluno.Dominio.Cadastros.Turmas.Entidades;
 
 using Microsoft.EntityFrameworkCore;

@@ -1,8 +1,8 @@
-﻿using EGF.DTOs.Entidades;
+﻿using ChamaAluno.DTOs.Base;
 
 namespace ChamaAluno.DTOs.Cadastros.Turmas
 {
-    public class DTODeTurma : DTODeEntidadeComID
+    public class DTODeTurma : DTODoChamaAluno
     {
         public string Descricao { get; set; }
     }

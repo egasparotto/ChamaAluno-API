@@ -1,5 +1,4 @@
-﻿
-using EGF.Dados.EFCore.Fabricas;
+﻿using EGF.Dados.EFCore.SQLServer.Fabricas;
 using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 
 namespace ChamaAluno.Dados.Fabricas

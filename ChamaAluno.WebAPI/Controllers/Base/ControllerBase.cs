@@ -1,11 +1,8 @@
-﻿using ChamaAluno.DTOs.Framework.Exibicoes;
-
-using EGF.Dominio.UnidadesDeTrabalho;
-using EGF.DTOs.Entidades;
-using EGF.ServicosDeAplicacao.CRUD.Base;
+﻿using ChamaAluno.DTOs.Base;
+using ChamaAluno.DTOs.Framework.Exibicoes;
+using ChamaAluno.ServicosDeAplicacao.CRUD.Base;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 using System;
 using System.Collections.Generic;
@@ -14,8 +11,8 @@ namespace ChamaAluno.WebAPI.Controllers.Base
 {
     [ApiController]
     public abstract class ControllerBase<TDTO, TCRUD> : ControllerBase
-        where TDTO : DTODeEntidade
-        where TCRUD : ICRUD<TDTO>
+        where TDTO : DTODoChamaAluno
+        where TCRUD : IChamaAlunoCRUD<TDTO>
     {
         protected TCRUD ServicoDeCrud { get; }
         public ControllerBase(TCRUD servicoDeCrud)

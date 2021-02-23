@@ -1,10 +1,9 @@
-﻿using ChamaAluno.Dominio.Cadastros.Colaboradores.Entidades;
-
-using EGF.Dominio.Repositorios;
+﻿using ChamaAluno.Dominio.Base.Interfaces;
+using ChamaAluno.Dominio.Cadastros.Colaboradores.Entidades;
 
 namespace ChamaAluno.Dominio.Cadastros.Colaboradores.Repositorios
 {
-    public interface IRepositorioDeColaborador : IRepositorioComId<Colaborador>
+    public interface IRepositorioDeColaborador : IRepositorioDoChamaAluno<Colaborador>
     {
     }
 }

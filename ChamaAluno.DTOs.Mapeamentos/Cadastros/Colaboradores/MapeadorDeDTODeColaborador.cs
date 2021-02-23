@@ -19,7 +19,7 @@ namespace ChamaAluno.DTOs.Mapeamentos.Cadastros.Colaboradores
 
         public MapeadorDeDTODeColaborador(IRepositorioDePerfil repositorioDePerfil)
         {
-           _repositorioDePerfil = repositorioDePerfil;
+            _repositorioDePerfil = repositorioDePerfil;
         }
 
         public override void DTOParaEntidade(IMappingExpression<DTODeColaborador, Colaborador> mapeamento)

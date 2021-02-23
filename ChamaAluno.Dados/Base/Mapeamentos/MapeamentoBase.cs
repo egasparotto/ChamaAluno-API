@@ -1,12 +1,12 @@
-﻿using EGF.Dominio.Entidades;
+﻿using ChamaAluno.Dominio.Base.Entidades;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ChamaAluno.Dados.Base.Mapeamento
+namespace ChamaAluno.Dados.Base.Mapeamentos
 {
     public abstract class MapeamentoBase<T> : EGF.Dados.EFCore.Mapeamentos.Mapeamento<T>
-        where T : EntidadeComId
+        where T : EntidadeDoChamaAluno
     {
         protected EntityTypeBuilder<T> Builder { get; private set; }
         protected abstract string NomeTabela { get; }

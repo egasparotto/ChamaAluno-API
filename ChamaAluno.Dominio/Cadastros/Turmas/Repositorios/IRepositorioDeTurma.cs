@@ -1,10 +1,9 @@
-﻿using ChamaAluno.Dominio.Cadastros.Turmas.Entidades;
-
-using EGF.Dominio.Repositorios;
+﻿using ChamaAluno.Dominio.Base.Interfaces;
+using ChamaAluno.Dominio.Cadastros.Turmas.Entidades;
 
 namespace ChamaAluno.Dominio.Cadastros.Turmas.Repositorios
 {
-    public interface IRepositorioDeTurma : IRepositorioComId<Turma>
+    public interface IRepositorioDeTurma : IRepositorioDoChamaAluno<Turma>
     {
     }
 }

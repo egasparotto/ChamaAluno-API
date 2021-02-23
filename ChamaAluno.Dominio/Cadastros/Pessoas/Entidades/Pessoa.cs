@@ -1,13 +1,12 @@
 ﻿using ChamaAluno.Dominio.Base.Atributos.Validadores;
+using ChamaAluno.Dominio.Base.Entidades;
 using ChamaAluno.Dominio.Cadastros.Pessoas.Validadores;
-
-using EGF.Dominio.Entidades;
 
 using System;
 
 namespace ChamaAluno.Dominio.Cadastros.Pessoas.Entidades
 {
-    public abstract class Pessoa : EntidadeComId
+    public abstract class Pessoa : EntidadeDoChamaAluno
     {
         [Requerido]
         public string Nome { get; set; }

@@ -1,22 +1,19 @@
 ﻿
-using ChamaAluno.Dominio.Base.Excecoes;
+using ChamaAluno.Dados.Base.Repositorios;
 using ChamaAluno.Dominio.Cadastros.Alunos.Entidades;
 using ChamaAluno.Dominio.Cadastros.Alunos.Repositorios;
 
-using EGF.Dados.EFCore.Repositorios;
 using EGF.Dominio.UnidadesDeTrabalho;
 
 using Microsoft.EntityFrameworkCore;
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ChamaAluno.Dados.Cadastros.Alunos.Repositorios
 {
-    public class RepositorioDeAluno : RepositorioComId<Aluno>, IRepositorioDeAluno
+    public class RepositorioDeAluno : RepositorioDoChamaAluno<Aluno>, IRepositorioDeAluno
     {
         protected IRepositorioDeAlunoDoResponsavel RepositorioDeAlunoDoResponsavel { get; set; }
 

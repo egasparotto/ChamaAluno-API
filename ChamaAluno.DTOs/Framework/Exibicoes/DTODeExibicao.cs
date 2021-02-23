@@ -1,14 +1,10 @@
-﻿using EGF.DTOs.Entidades;
+﻿using ChamaAluno.DTOs.Base;
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChamaAluno.DTOs.Framework.Exibicoes
 {
-    public class DTODeExibicao : DTODeEntidadeComID
+    public class DTODeExibicao : DTODoChamaAluno
     {
         public string Descricao { get; set; }
         public IList<DTODeCamposDaExibicao> Campos { get; set; }

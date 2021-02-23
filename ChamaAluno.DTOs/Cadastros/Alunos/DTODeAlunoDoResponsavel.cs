@@ -1,10 +1,10 @@
-﻿using EGF.DTOs.Entidades;
+﻿using ChamaAluno.DTOs.Base;
 
 using System;
 
 namespace ChamaAluno.DTOs.Cadastros.Alunos
 {
-    public class DTODeAlunoDoResponsavel : DTODeEntidadeComID
+    public class DTODeAlunoDoResponsavel : DTODoChamaAluno
     {
         public int IdDoResponsavel { get; set; }
         public string NomeDoResponsavel { get; set; }

@@ -1,17 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using AutoMapper;
+﻿using AutoMapper;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChamaAluno.DTOs.Mapeamentos.Cadastros.Colaboradores;
+using ChamaAluno.DTOs.Mapeamentos.Administracao.Contas;
 using ChamaAluno.DTOs.Mapeamentos.Cadastros.Alunos;
+using ChamaAluno.DTOs.Mapeamentos.Cadastros.Colaboradores;
+using ChamaAluno.DTOs.Mapeamentos.Cadastros.Pessoas;
 using ChamaAluno.DTOs.Mapeamentos.Cadastros.Responsaveis;
 using ChamaAluno.DTOs.Mapeamentos.Cadastros.Turmas;
-using ChamaAluno.DTOs.Mapeamentos.Administracao.Contas;
-using ChamaAluno.DTOs.Mapeamentos.Cadastros.Pessoas;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using System;
 
 namespace ChamaAluno.Inicializador
 {

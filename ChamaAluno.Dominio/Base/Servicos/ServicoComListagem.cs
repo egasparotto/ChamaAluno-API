@@ -1,18 +1,15 @@
-﻿using ChamaAluno.Dominio.Base.Interfaces;
+﻿using ChamaAluno.Dominio.Base.Entidades;
+using ChamaAluno.Dominio.Base.Interfaces;
 using ChamaAluno.Dominio.Base.Utils;
-
-using EGF.Dominio.Entidades;
-using EGF.Dominio.Repositorios;
-using EGF.Dominio.Servicos;
 
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ChamaAluno.Dominio.Base.Servicos
 {
-    public class ServicoComListagem<TEntidade, TRepositorio> : ServicoDePersistencia<TEntidade, TRepositorio>, IServicoComListagem<TEntidade>
-        where TEntidade : EntidadeComId
-        where TRepositorio : IRepositorioComId<TEntidade>
+    public class ServicoComListagem<TEntidade, TRepositorio> : ServicoDePersistenciaDoChamaAluno<TEntidade, TRepositorio>, IServicoComListagem<TEntidade>
+        where TEntidade : EntidadeDoChamaAluno
+        where TRepositorio : IRepositorioDoChamaAluno<TEntidade>
     {
         public ServicoComListagem(TRepositorio repositorio) : base(repositorio)
         {

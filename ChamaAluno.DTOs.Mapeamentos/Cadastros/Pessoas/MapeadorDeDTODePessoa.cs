@@ -5,12 +5,6 @@ using ChamaAluno.DTOs.Cadastros.Pessoas;
 
 using EGF.DTOs.Mapeamentos.Base;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ChamaAluno.DTOs.Mapeamentos.Cadastros.Pessoas
 {
     public class MapeadorDeDTODePessoa : MapeadorDeDTO<Pessoa, DTODePessoa>
@@ -19,7 +13,8 @@ namespace ChamaAluno.DTOs.Mapeamentos.Cadastros.Pessoas
         {
             mapeamento
                 .ForMember(x => x.Foto, x => x.Ignore())
-                .AfterMap((dto, entidade ) => {
+                .AfterMap((dto, entidade) =>
+                {
                     entidade.AtualizaFoto(dto.Foto);
                 }); ;
         }
@@ -28,7 +23,8 @@ namespace ChamaAluno.DTOs.Mapeamentos.Cadastros.Pessoas
         {
             mapeamento
                 .ForMember(x => x.Foto, x => x.Ignore())
-                .AfterMap((entidade, dto) => {
+                .AfterMap((entidade, dto) =>
+                {
                     dto.Foto = entidade.FotoBase64();
                 });
         }

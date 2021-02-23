@@ -1,8 +1,8 @@
 ﻿
+using ChamaAluno.Dados.Base.Repositorios;
 using ChamaAluno.Dominio.Cadastros.Colaboradores.Entidades;
 using ChamaAluno.Dominio.Cadastros.Colaboradores.Repositorios;
 
-using EGF.Dados.EFCore.Repositorios;
 using EGF.Dominio.UnidadesDeTrabalho;
 
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ChamaAluno.Dados.Cadastros.Colaboradores.Repositorios
 {
-    public class RepositorioDeColaborador : RepositorioComId<Colaborador>, IRepositorioDeColaborador
+    public class RepositorioDeColaborador : RepositorioDoChamaAluno<Colaborador>, IRepositorioDeColaborador
     {
         public RepositorioDeColaborador(IUnidadeDeTrabalho unidadeDeTrabalho) : base(unidadeDeTrabalho)
         {

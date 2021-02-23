@@ -1,10 +1,9 @@
-﻿using ChamaAluno.Dominio.Cadastros.Alunos.Entidades;
-
-using EGF.Dominio.Repositorios;
+﻿using ChamaAluno.Dominio.Base.Interfaces;
+using ChamaAluno.Dominio.Cadastros.Alunos.Entidades;
 
 namespace ChamaAluno.Dominio.Cadastros.Alunos.Repositorios
 {
-    public interface IRepositorioDeAluno : IRepositorioComId<Aluno>
+    public interface IRepositorioDeAluno : IRepositorioDoChamaAluno<Aluno>
     {
     }
 }

@@ -8,8 +8,6 @@ using EGF.Dominio.UnidadesDeTrabalho;
 using EGF.Licenciamento.Core.Licencas.Gerenciadores;
 using EGF.Licenciamento.WEB.Gerenciadores;
 
-using Microsoft.EntityFrameworkCore;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ChamaAluno.Inicializador

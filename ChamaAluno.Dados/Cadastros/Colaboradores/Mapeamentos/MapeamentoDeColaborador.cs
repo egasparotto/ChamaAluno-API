@@ -1,4 +1,4 @@
-﻿using ChamaAluno.Dados.Base.Mapeamento;
+﻿using ChamaAluno.Dados.Base.Mapeamentos;
 using ChamaAluno.Dominio.Cadastros.Colaboradores.DadosPadroes;
 using ChamaAluno.Dominio.Cadastros.Colaboradores.Entidades;
 

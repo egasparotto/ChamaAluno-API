@@ -5,12 +5,6 @@ using ChamaAluno.DTOs.Administracao.Contas;
 
 using EGF.DTOs.Mapeamentos.Base;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ChamaAluno.DTOs.Mapeamentos.Administracao.Contas
 {
     public class MapeadorDeDTODeLogin : MapeadorDeDTO<Colaborador, DTODeLogin>

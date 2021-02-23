@@ -24,7 +24,7 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
 {
     [ApiController]
     [Route("API/Administracao/[controller]")]
-    public class ContaController: ControllerBase
+    public class ContaController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<Colaborador> _userManager;
@@ -45,11 +45,11 @@ namespace ChamaAluno.WebAPI.Controllers.Administracao.Conta
 
 
         [HttpGet("UsuarioLogado")]
-        public async Task<DTODeColaborador> UsuarioLogado()
+        public DTODeColaborador UsuarioLogado()
         {
             var strIdDoUsuario = _httpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.NameIdentifier).FirstOrDefault()?.Value;
 
-            if(!string.IsNullOrEmpty(strIdDoUsuario))
+            if (!string.IsNullOrEmpty(strIdDoUsuario))
             {
                 var id = int.Parse(strIdDoUsuario);
 

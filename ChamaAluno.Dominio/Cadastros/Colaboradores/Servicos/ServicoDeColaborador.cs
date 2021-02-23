@@ -66,8 +66,10 @@ namespace ChamaAluno.Dominio.Cadastros.Colaboradores.Servicos
             }
             catch (Exception e)
             {
-                IdentityError error = new IdentityError();
-                error.Description = e.Message;
+                IdentityError error = new IdentityError
+                {
+                    Description = e.Message
+                };
                 return IdentityResult.Failed(error);
             }
         }
@@ -81,8 +83,10 @@ namespace ChamaAluno.Dominio.Cadastros.Colaboradores.Servicos
             }
             catch (Exception e)
             {
-                IdentityError error = new IdentityError();
-                error.Description = e.Message;
+                IdentityError error = new IdentityError
+                {
+                    Description = e.Message
+                };
                 return IdentityResult.Failed(error);
             }
         }
@@ -211,8 +215,10 @@ namespace ChamaAluno.Dominio.Cadastros.Colaboradores.Servicos
             }
             catch (Exception e)
             {
-                IdentityError error = new IdentityError();
-                error.Description = e.Message;
+                IdentityError error = new IdentityError
+                {
+                    Description = e.Message
+                };
                 return IdentityResult.Failed(error);
             }
         }

@@ -1,14 +1,13 @@
 ﻿
 using ChamaAluno.Dominio.Base.Atributos.Validadores;
+using ChamaAluno.Dominio.Base.Entidades;
 using ChamaAluno.Dominio.Cadastros.Responsaveis.Entidades;
-
-using EGF.Dominio.Entidades;
 
 using System;
 
 namespace ChamaAluno.Dominio.Cadastros.Alunos.Entidades
 {
-    public class AlunoDoResponsavel : EntidadeComId
+    public class AlunoDoResponsavel : EntidadeDoChamaAluno
     {
         [Requerido]
         public int IdDoAluno { get; set; }

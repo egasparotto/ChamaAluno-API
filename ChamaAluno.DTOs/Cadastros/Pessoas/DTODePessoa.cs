@@ -1,8 +1,8 @@
-﻿using EGF.DTOs.Entidades;
+﻿using ChamaAluno.DTOs.Base;
 
 namespace ChamaAluno.DTOs.Cadastros.Pessoas
 {
-    public class DTODePessoa : DTODeEntidadeComID
+    public class DTODePessoa : DTODoChamaAluno
     {
         public string Nome { get; set; }
         public string CPF { get; set; }

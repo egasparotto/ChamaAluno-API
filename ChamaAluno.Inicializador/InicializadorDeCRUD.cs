@@ -5,12 +5,6 @@ using ChamaAluno.ServicosDeAplicacao.CRUD.Cadastros.Turmas;
 
 using Microsoft.Extensions.DependencyInjection;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ChamaAluno.Inicializador
 {
     public static class InicializadorDeCRUD

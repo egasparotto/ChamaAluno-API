@@ -4,9 +4,7 @@ using ChamaAluno.Dominio.Cadastros.Colaboradores.Servicos;
 
 using EGF.Dominio.Autenticacao.Perfis.Entidades;
 using EGF.Dominio.Autenticacao.Perfis.Servicos;
-using EGF.Dominio.Autenticacao.Usuarios.Entidades;
 
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;

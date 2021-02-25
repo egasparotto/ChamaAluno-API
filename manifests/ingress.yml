@@ -27,7 +27,7 @@ spec:
       - backend:
           serviceName: chamaalunoapi
           servicePort: 80
-        path: /api(/|$)(.*)
+        path: /[aA][pP][iI](/|$)(.*)
       - backend:
           serviceName: chamaalunoapi
           servicePort: 80

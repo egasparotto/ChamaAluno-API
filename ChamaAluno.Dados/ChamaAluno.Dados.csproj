@@ -5,13 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EGF.Dados.EFCore" Version="1.0.2.1" />
+    <PackageReference Include="EGF.Dados.EFCore" Version="1.0.2.2" />
     <PackageReference Include="EGF.Dados.EFCore.Autenticacao" Version="1.0.2.1" />
-    <PackageReference Include="EGF.Dados.EFCore.SQLServer" Version="1.0.2.1" />
+    <PackageReference Include="EGF.Dados.EFCore.SQLServer" Version="1.0.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

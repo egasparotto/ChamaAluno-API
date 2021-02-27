@@ -1,4 +1,5 @@
-﻿using ChamaAluno.WebAPI.Controllers.Administracao.Licencas;
+﻿using ChamaAluno.WebAPI.Controllers.Administracao.Conta;
+using ChamaAluno.WebAPI.Controllers.Administracao.Licencas;
 
 using EGF.Dominio.UnidadesDeTrabalho;
 
@@ -23,7 +24,7 @@ namespace ChamaAluno.WebAPI.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
 
-            if (context.Controller.GetType() != typeof(LicenciamentoController))
+            if (context.Controller.GetType() == typeof(ContaController))
             {
                 var unidadeDeTrabalho = (IUnidadeDeTrabalho)context.HttpContext.RequestServices.GetService(typeof(IUnidadeDeTrabalho));
                 unidadeDeTrabalho.Contexto.Database.Migrate();

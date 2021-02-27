@@ -9,7 +9,7 @@ using EGF.Dominio.UnidadesDeTrabalho;
 
 namespace ChamaAluno.ServicosDeAplicacao.CRUD.Cadastros.Colaboradores
 {
-    public class ColaboradorCRUD : ChamaAlunoCRUD<Colaborador, IServicoDeColaborador, DTODeColaborador>, IColaboradorCRUD
+    public class ColaboradorCRUD : ListagemCRUD<Colaborador, IServicoDeColaborador, DTODeColaborador>, IColaboradorCRUD
     {
         public ColaboradorCRUD(IServicoDeColaborador servico, IUnidadeDeTrabalho unidadeDeTrabalho, IMapper mapeador) : base(servico, unidadeDeTrabalho, mapeador)
         {

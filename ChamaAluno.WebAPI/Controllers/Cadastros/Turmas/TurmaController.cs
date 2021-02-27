@@ -11,7 +11,7 @@ namespace ChamaAluno.WebAPI.Controllers.Cadastros.Turmas
 {
     [ApiController]
     [Route("API/Cadastros/[controller]")]
-    public class TurmaController : ControllerBase<DTODeTurma, ITurmaCRUD>
+    public class TurmaController : ControllerComLista<DTODeTurma, ITurmaCRUD>
     {
         public TurmaController(ITurmaCRUD servicoDeCrud) : base(servicoDeCrud)
         {

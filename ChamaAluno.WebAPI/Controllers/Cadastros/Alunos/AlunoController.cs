@@ -8,7 +8,7 @@ namespace ChamaAluno.WebAPI.Controllers.Cadastros.Alunos
 {
     [ApiController]
     [Route("API/Cadastros/[controller]")]
-    public class AlunoController : ControllerBase<DTODeAluno, IAlunoCRUD>
+    public class AlunoController : ControllerComLista<DTODeAluno, IAlunoCRUD>
     {
         public AlunoController(IAlunoCRUD servicoDeCrud) : base(servicoDeCrud)
         {

@@ -8,7 +8,7 @@ namespace ChamaAluno.WebAPI.Controllers.Cadastros.Colaboradores
 {
     [ApiController]
     [Route("API/Cadastros/[controller]")]
-    public class ColaboradorController : ControllerBase<DTODeColaborador, IColaboradorCRUD>
+    public class ColaboradorController : ControllerComLista<DTODeColaborador, IColaboradorCRUD>
     {
         public ColaboradorController(IColaboradorCRUD servicoDeCrud) : base(servicoDeCrud)
         {

@@ -8,7 +8,7 @@ namespace ChamaAluno.WebAPI.Controllers.Cadastros.Responsaveis
 {
     [ApiController]
     [Route("API/Cadastros/[controller]")]
-    public class ResponsavelController : ControllerBase<DTODeResponsavel, IResponsavelCRUD>
+    public class ResponsavelController : ControllerComLista<DTODeResponsavel, IResponsavelCRUD>
     {
         public ResponsavelController(IResponsavelCRUD servicoDeCrud) : base(servicoDeCrud)
         {

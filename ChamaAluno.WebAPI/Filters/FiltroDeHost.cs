@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EGF.Dominio.UnidadesDeTrabalho;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
+using System;
 using System.Linq;
 
 namespace ChamaAluno.WebAPI.Filters
@@ -9,6 +12,9 @@ namespace ChamaAluno.WebAPI.Filters
     {
         public void OnActionExecuted(ActionExecutedContext context)
         {
+            var unidadeDeTrabalho = (IUnidadeDeTrabalho)context.HttpContext.RequestServices.GetService(typeof(IUnidadeDeTrabalho));
+            unidadeDeTrabalho.Contexto.Dispose();
+            GC.Collect();
         }
 
         public void OnActionExecuting(ActionExecutingContext context)

@@ -3,7 +3,7 @@ using ChamaAluno.ServicosDeAplicacao.CRUD.Base;
 
 namespace ChamaAluno.ServicosDeAplicacao.CRUD.Cadastros.Responsaveis
 {
-    public interface IResponsavelCRUD : IChamaAlunoCRUD<DTODeResponsavel>
+    public interface IResponsavelCRUD : IListagemCRUD<DTODeResponsavel>
     {
     }
 }

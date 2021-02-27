@@ -9,7 +9,7 @@ using EGF.Dominio.UnidadesDeTrabalho;
 
 namespace ChamaAluno.ServicosDeAplicacao.CRUD.Cadastros.Responsaveis
 {
-    public class ResponsavelCRUD : ChamaAlunoCRUD<Responsavel, IServicoDeResponsavel, DTODeResponsavel>, IResponsavelCRUD
+    public class ResponsavelCRUD : ListagemCRUD<Responsavel, IServicoDeResponsavel, DTODeResponsavel>, IResponsavelCRUD
     {
         public ResponsavelCRUD(IServicoDeResponsavel servico, IUnidadeDeTrabalho unidadeDeTrabalho, IMapper mapeador) : base(servico, unidadeDeTrabalho, mapeador)
         {

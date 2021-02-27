@@ -13,10 +13,11 @@ namespace ChamaAluno.Dados.Fabricas
         {
         }
 
+#if DEBUG
         public override DbContextOptionsBuilder OpcoesAdicionais(DbContextOptionsBuilder options)
         {
-            return options;
-            //return options.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
+            return options.EnableSensitiveDataLogging().LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
         }
+#endif
     }
 }

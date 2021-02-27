@@ -8,6 +8,7 @@ namespace ChamaAluno.ServicosDeAplicacao.CRUD.Base
     public interface IListagemCRUD<TDTO> : IChamaAlunoCRUD<TDTO>
         where TDTO : DTODoChamaAluno
     {
-        public IEnumerable<TDTO> ListarParaGrid(string pesquisa);
+        public IEnumerable<TDTO> ListarParaGrid(string pesquisa, int skip, int take);
+        public int TotalParaGrid(string pesquisa);
     }
 }

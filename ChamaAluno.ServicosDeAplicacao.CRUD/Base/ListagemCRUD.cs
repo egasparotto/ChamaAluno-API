@@ -20,9 +20,14 @@ namespace ChamaAluno.ServicosDeAplicacao.CRUD.Base
         {
         }
 
-        public IEnumerable<TDTO> ListarParaGrid(string pesquisa)
+        public IEnumerable<TDTO> ListarParaGrid(string pesquisa, int skip, int take)
         {
-            return Mapeador.Map<IEnumerable<TDTO>>(Servico.Buscar(pesquisa));
+            return Mapeador.Map<IEnumerable<TDTO>>(Servico.Buscar(pesquisa).Skip(skip).Take(take));
+        }
+
+        public int TotalParaGrid(string pesquisa)
+        {
+            return Servico.Buscar(pesquisa).Count();
         }
     }
 }

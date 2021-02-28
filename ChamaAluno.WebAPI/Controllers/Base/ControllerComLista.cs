@@ -34,7 +34,8 @@ namespace ChamaAluno.WebAPI.Controllers.Base
                 NumeroDaPagina = opcoes.NumeroDaPagina,
                 Total = total,
                 TotalNaPagina = opcoes.TotalNaPagina,
-                TotalDePaginas = (int)Math.Ceiling(((double)total) / opcoes.TotalNaPagina)
+                TotalDePaginas = (int)Math.Ceiling(((double)total) / opcoes.TotalNaPagina),
+                Pesquisa = opcoes.Pesquisa
             };
             return retorno;
         }

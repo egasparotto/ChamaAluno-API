@@ -12,6 +12,6 @@ namespace ChamaAluno.DTOs.Framework.GridEGF
         where TDTO : DTODeEntidade
     {
         public TDTO[] Dados { get; set; }
-        public DTODePaginaDoGridEGF Pagina { get; set; }
+        public DTODeOpcoesDoGridEGF Opcoes { get; set; }
     }
 }

@@ -19,22 +19,22 @@ namespace ChamaAluno.WebAPI.Controllers.Base
         }
 
         [HttpPost("ListarParaGrid")]
-        public DTODeGridEGF<TDTO> ListarParaGrid(DTODePaginaDoGridEGF pagina, string pesquisa)
+        public DTODeGridEGF<TDTO> ListarParaGrid(DTODeOpcoesDoGridEGF opcoes)
         {
-            var skip = pagina.NumeroDaPagina * pagina.TotalNaPagina;
-            var take = pagina.TotalNaPagina;
+            var skip = opcoes.NumeroDaPagina * opcoes.TotalNaPagina;
+            var take = opcoes.TotalNaPagina;
 
             var retorno = new DTODeGridEGF<TDTO>();
-            retorno.Dados = ServicoDeCrud.ListarParaGrid(pesquisa, skip, take).ToArray();
+            retorno.Dados = ServicoDeCrud.ListarParaGrid(opcoes.Pesquisa, skip, take).ToArray();
 
-            var total = ServicoDeCrud.TotalParaGrid(pesquisa);
+            var total = ServicoDeCrud.TotalParaGrid(opcoes.Pesquisa);
 
-            retorno.Pagina = new DTODePaginaDoGridEGF()
+            retorno.Pagina = new DTODeOpcoesDoGridEGF()
             {
-                NumeroDaPagina = pagina.NumeroDaPagina,
+                NumeroDaPagina = opcoes.NumeroDaPagina,
                 Total = total,
-                TotalNaPagina = pagina.TotalNaPagina,
-                TotalDePaginas = (int)Math.Ceiling(((double)total) / pagina.TotalNaPagina)
+                TotalNaPagina = opcoes.TotalNaPagina,
+                TotalDePaginas = (int)Math.Ceiling(((double)total) / opcoes.TotalNaPagina)
             };
             return retorno;
         }

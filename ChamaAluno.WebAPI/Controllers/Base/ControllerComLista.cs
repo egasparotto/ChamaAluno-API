@@ -29,7 +29,7 @@ namespace ChamaAluno.WebAPI.Controllers.Base
 
             var total = ServicoDeCrud.TotalParaGrid(opcoes.Pesquisa);
 
-            retorno.Pagina = new DTODeOpcoesDoGridEGF()
+            retorno.Opcoes = new DTODeOpcoesDoGridEGF()
             {
                 NumeroDaPagina = opcoes.NumeroDaPagina,
                 Total = total,

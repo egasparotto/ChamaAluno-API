@@ -54,7 +54,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'egasparottoChamaAlunoAPI.chamaaluno'
+    environment: 'ChamaAluno.chamaaluno'
     strategy:
       runOnce:
         deploy:

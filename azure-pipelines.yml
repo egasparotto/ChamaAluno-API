@@ -11,7 +11,7 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'b73b5fa9-357d-49db-b590-e85299a8d423'
+  dockerRegistryServiceConnection: 'ChamaAluno'
   imageRepository: 'chamaalunoapi'
   containerRegistry: 'chamaaluno.azurecr.io'
   dockerfilePath: '**/Dockerfile'
@@ -54,7 +54,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'egasparottoChamaAlunoAPI.chamaaluno'
+    environment: 'ChamaAluno.chamaaluno'
     strategy:
       runOnce:
         deploy:

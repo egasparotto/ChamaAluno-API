@@ -75,7 +75,6 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment-api.yml
                 $(Pipeline.Workspace)/manifests/service-api.yml
                 $(Pipeline.Workspace)/manifests/ingress.yml
-                $(Pipeline.Workspace)/manifests/certificado.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |

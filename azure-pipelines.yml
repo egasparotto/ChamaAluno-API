@@ -40,26 +40,10 @@ stages:
         tags: |
           $(tag)
           latest
-          
-    - upload: manifests
-      artifact: manifests
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
-
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
-    environment: 'ChamaAluno.chamaaluno'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: OctopusCreateRelease@4
-            inputs:
-              OctoConnectedServiceName: 'Octopus'
-              Space: 'Spaces-1'
-              ProjectGroup: 'ProjectGroups-1'
-              ProjectName: 'Projects-1'
+    - task: OctopusCreateRelease@4
+      inputs:
+        OctoConnectedServiceName: 'Octopus'
+        Space: 'Spaces-1'
+        ProjectGroup: 'ProjectGroups-1'
+        ProjectName: 'Projects-1'
+        DeployToEnvironment: 'Environments-21'

@@ -52,10 +52,10 @@ stages:
       inputs:
         version: '6.17.3'
             
-    - task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-pack.OctopusPack@3
-      displayName: 'Package $(Package.Name).$(Build.SourceBranchName)'
+    - task: OctopusPack@4
       inputs:
         PackageId: '$(Package.Name).$(Build.SourceBranchName)'
+        PackageFormat: 'NuPkg'
         PackageVersion: '$(Package.MajorVersion).$(Build.BuildID)'
         SourcePath: '$(Build.Repository.LocalPath)/deploy'
         OutputPath: '$(build.artifactstagingdirectory)/package'
@@ -67,10 +67,9 @@ stages:
         ArtifactName: 'package'
       condition: succeededOrFailed()
 
-    - task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-push.OctopusPush@3
-      displayName: 'Push Packages to Octopus'
+    - task: OctopusPush@3
       inputs:
-        OctoConnectedServiceName: 'Octopus Deploy-LGPD'
+        OctoConnectedServiceName: 'Octopus'
         Space: '$(Package.Space)'
         Package: '$(Build.ArtifactStagingDirectory)/package/$(Package.Name).$(Build.SourceBranchName).$(Package.MajorVersion).$(Build.BuildID).nupkg'
         Replace: true

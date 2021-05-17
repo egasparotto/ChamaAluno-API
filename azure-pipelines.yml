@@ -87,7 +87,7 @@ stages:
     - task: OctopusCreateRelease@4
       displayName: 'Create a Release in Octopus'
       inputs:
-        OctoConnectedServiceName: 'Octopus Deploy-LGPD'
+        OctoConnectedServiceName: 'Octopus'
         Space: 'Spaces-1'
         ProjectName: '$(Package.ProjectName)'
         ReleaseNumber: '$(Package.MajorVersion).$(Build.BuildID)'

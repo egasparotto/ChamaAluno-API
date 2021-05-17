@@ -16,6 +16,14 @@ variables:
   containerRegistry: 'chamaaluno.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
+  Package.ProjectName: 'Projects-1'
+  Package.Name: 'Projects-1'
+  Package.MajorVersion: '1.0'
+  Package.Space: 'Spaces-1'
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+     Package.ChannelName: 'Default'
+  ${{ if not(eq(variables['Build.SourceBranchName'], 'master')) }}:
+     Package.ChannelName: '$(Build.SourceBranchName)' 
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -40,10 +48,50 @@ stages:
         tags: |
           $(tag)
           latest
-    - task: OctopusCreateRelease@4
+    - task: OctoInstaller@4
       inputs:
-        OctoConnectedServiceName: 'Octopus'
+        version: '6.17.3'
+            
+    - task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-pack.OctopusPack@3
+      displayName: 'Package $(Package.Name).$(Build.SourceBranchName)'
+      inputs:
+        PackageId: '$(Package.Name).$(Build.SourceBranchName)'
+        PackageVersion: '$(Package.MajorVersion).$(Build.BuildID)'
+        SourcePath: '$(Build.Repository.LocalPath)/deploy'
+        OutputPath: '$(build.artifactstagingdirectory)/package'
+        
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)/package'
+        ArtifactName: 'package'
+      condition: succeededOrFailed()
+
+    - task: octopusdeploy.octopus-deploy-build-release-tasks.octopus-push.OctopusPush@3
+      displayName: 'Push Packages to Octopus'
+      inputs:
+        OctoConnectedServiceName: 'Octopus Deploy-LGPD'
+        Space: '$(Package.Space)'
+        Package: '$(Build.ArtifactStagingDirectory)/package/$(Package.Name).$(Build.SourceBranchName).$(Package.MajorVersion).$(Build.BuildID).nupkg'
+        Replace: true
+
+    - task: OctoInstaller@4
+      displayName: 'Define Versão do Octopus'
+      inputs:
+        version: '6.17.3'
+
+    - task: CmdLine@2
+      displayName: 'Create a Channel in Octopus'
+      inputs:
+        script: '/usr/bin/dotnet /opt/hostedtoolcache/octo/6.17.3/x64/Octo.dll  create-channel --project $(Package.ProjectName) --channel $(Package.ChannelName) --server $(Octopus.Server) --apikey $(Octopus.apikey)  --update-existing'
+
+    - task: OctopusCreateRelease@4
+      displayName: 'Create a Release in Octopus'
+      inputs:
+        OctoConnectedServiceName: 'Octopus Deploy-LGPD'
         Space: 'Spaces-1'
-        ProjectGroup: 'ProjectGroups-1'
-        ProjectName: 'Projects-1'
-        DeployToEnvironment: 'Environments-21'
+        ProjectName: '$(Package.ProjectName)'
+        ReleaseNumber: '$(Package.MajorVersion).$(Build.BuildID)'
+        Channel: '$(Package.ChannelName)'
+        ChangesetCommentReleaseNotes: true
+        WorkItemReleaseNotes: true

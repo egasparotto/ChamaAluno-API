@@ -57,7 +57,7 @@ stages:
         PackageId: '$(Package.Name).$(Build.SourceBranchName)'
         PackageFormat: 'NuPkg'
         PackageVersion: '$(Package.MajorVersion).$(Build.BuildID)'
-        SourcePath: '$(Build.Repository.LocalPath)/deploy'
+        SourcePath: '$(Build.Repository.LocalPath)'
         OutputPath: '$(build.artifactstagingdirectory)/package'
         
     - task: PublishBuildArtifacts@1

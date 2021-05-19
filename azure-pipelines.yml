@@ -16,8 +16,8 @@ variables:
   containerRegistry: 'GaspaTech.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  Package.ProjectName: '$(Build.Repository.Name)'
-  Package.Name: '$(Build.Repository.Name)'
+  Package.ProjectName: 'ChamaAluno-API'
+  Package.Name: 'ChamaAluno-API'
   Package.MajorVersion: '1.0'
   Package.Space: 'Spaces-1'
   Package.ChannelName: '$(Build.SourceBranchName)' 
@@ -35,10 +35,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: 'echo ''$(Build.Repository.Name)'''
+    
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:

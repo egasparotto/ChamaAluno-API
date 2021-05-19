@@ -79,23 +79,23 @@ stages:
           Package: '$(Build.ArtifactStagingDirectory)/package/$(Package.Name).$(Build.SourceBranchName).$(Package.MajorVersion).$(Build.BuildID).nupkg'
           Replace: true
 
-    - task: OctoInstaller@4
-      displayName: 'Define Versão do Octopus'
-      inputs:
-        version: '6.17.3'
+      - task: OctoInstaller@4
+        displayName: 'Define Versão do Octopus'
+        inputs:
+          version: '6.17.3'
 
-    - task: CmdLine@2
-      displayName: 'Create a Channel in Octopus'
-      inputs:
-        script: '/usr/bin/dotnet /opt/hostedtoolcache/octo/6.17.3/x64/Octo.dll  create-channel --project $(Package.ProjectName) --channel $(Package.ChannelName) --server $(Octopus.Server) --apikey $(Octopus.apikey)  --update-existing'
+      - task: CmdLine@2
+        displayName: 'Create a Channel in Octopus'
+        inputs:
+          script: '/usr/bin/dotnet /opt/hostedtoolcache/octo/6.17.3/x64/Octo.dll  create-channel --project $(Package.ProjectName) --channel $(Package.ChannelName) --server $(Octopus.Server) --apikey $(Octopus.apikey)  --update-existing'
 
-    - task: OctopusCreateRelease@4
-      displayName: 'Create a Release in Octopus'
-      inputs:
-        OctoConnectedServiceName: 'Octopus'
-        Space: 'Spaces-1'
-        ProjectName: '$(Package.ProjectName)'
-        ReleaseNumber: '$(Package.MajorVersion).$(Build.BuildID)'
-        Channel: '$(Package.ChannelName)'
-        ChangesetCommentReleaseNotes: true
-        WorkItemReleaseNotes: true
+      - task: OctopusCreateRelease@4
+        displayName: 'Create a Release in Octopus'
+        inputs:
+          OctoConnectedServiceName: 'Octopus'
+          Space: '$(Package.Space)'
+          ProjectName: '$(Package.ProjectName)'
+          ReleaseNumber: '$(Package.MajorVersion).$(Build.BuildID)'
+          Channel: '$(Package.ChannelName)'
+          ChangesetCommentReleaseNotes: true
+          WorkItemReleaseNotes: true

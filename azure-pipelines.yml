@@ -16,14 +16,11 @@ variables:
   containerRegistry: 'GaspaTech.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
-  Package.ProjectName: 'Projects-1'
-  Package.Name: 'Projects-1'
+  Package.ProjectName: '$(Build.Repository.Name)'
+  Package.Name: '$(Build.Repository.Name)'
   Package.MajorVersion: '1.0'
   Package.Space: 'Spaces-1'
-  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-     Package.ChannelName: 'Default'
-  ${{ if not(eq(variables['Build.SourceBranchName'], 'master')) }}:
-     Package.ChannelName: '$(Build.SourceBranchName)' 
+  Package.ChannelName: '$(Build.SourceBranchName)' 
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'

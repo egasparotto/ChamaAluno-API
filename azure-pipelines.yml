@@ -11,9 +11,9 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'ChamaAluno'
+  dockerRegistryServiceConnection: 'GaspaTech'
   imageRepository: 'chamaalunoapi'
-  containerRegistry: 'chamaaluno.azurecr.io'
+  containerRegistry: 'GaspaTech.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   Package.ProjectName: 'Projects-1'

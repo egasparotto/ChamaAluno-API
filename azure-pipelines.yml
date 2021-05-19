@@ -45,31 +45,39 @@ stages:
         tags: |
           $(tag)
           latest
-    - task: OctoInstaller@4
-      inputs:
-        version: '6.17.3'
+- stage: Octopus
+  displayName: Octopus
+  jobs:
+    - job: Octopus
+      displayName: Build
+      pool:
+        vmImage: $(vmImageName)
+      steps:
+      - task: OctoInstaller@4
+        inputs:
+          version: '6.17.3'
             
-    - task: OctopusPack@4
-      inputs:
-        PackageId: '$(Package.Name).$(Build.SourceBranchName)'
-        PackageFormat: 'NuPkg'
-        PackageVersion: '$(Package.MajorVersion).$(Build.BuildID)'
-        SourcePath: '$(Build.Repository.LocalPath)'
-        OutputPath: '$(build.artifactstagingdirectory)/package'
+      - task: OctopusPack@4
+        inputs:
+          PackageId: '$(Package.Name).$(Build.SourceBranchName)'
+          PackageFormat: 'NuPkg'
+          PackageVersion: '$(Package.MajorVersion).$(Build.BuildID)'
+          SourcePath: '$(Build.Repository.LocalPath)'
+          OutputPath: '$(build.artifactstagingdirectory)/package'
         
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish Artifact'
-      inputs:
-        PathtoPublish: '$(build.artifactstagingdirectory)/package'
-        ArtifactName: 'package'
-      condition: succeededOrFailed()
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact'
+        inputs:
+          PathtoPublish: '$(build.artifactstagingdirectory)/package'
+          ArtifactName: 'package'
+        condition: succeededOrFailed()
 
-    - task: OctopusPush@3
-      inputs:
-        OctoConnectedServiceName: 'Octopus'
-        Space: '$(Package.Space)'
-        Package: '$(Build.ArtifactStagingDirectory)/package/$(Package.Name).$(Build.SourceBranchName).$(Package.MajorVersion).$(Build.BuildID).nupkg'
-        Replace: true
+      - task: OctopusPush@3
+        inputs:
+          OctoConnectedServiceName: 'Octopus'
+          Space: '$(Package.Space)'
+          Package: '$(Build.ArtifactStagingDirectory)/package/$(Package.Name).$(Build.SourceBranchName).$(Package.MajorVersion).$(Build.BuildID).nupkg'
+          Replace: true
 
     - task: OctoInstaller@4
       displayName: 'Define Versão do Octopus'
